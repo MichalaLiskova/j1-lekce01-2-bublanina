@@ -40,7 +40,39 @@ public class SpousteciTrida {
         // Pouzivejte napovidani v editoru.
         // Vyskakuje samo nebo pomoci Ctrl+Mezernik
 
-        cervenaMiska.nalozSiJedenKus(vajicka);
+        //cervenaMiska.nalozSiJedenKus(vajicka);    - takhle to jde opakovat 4x nebo jak je viz níže jeden fori příklad
+        for (int i = 0; i < 4; i++) {
+            cervenaMiska.nalozSiJedenKus(vajicka);
+
+        }
+        cervenaMiska.nalozSiCelyObsah(pytlikCukru);
+        mixer.zamichej(cervenaMiska);
+        cervenaMiska.nalozSiCelyObsah(maslo125g);
+        // System.out.println("Je dobře zamíchané: " + cervenaMiska.isDobreZamichane());  tohle způsobí informaci, že není dobře zamíchané, protože se tam přidalo máslo
+        mixer.zamichej(cervenaMiska);
+        System.out.println("Je dobře zamíchané: " + cervenaMiska.isDobreZamichane());
+        while (pytlikMouky.getHmotnost() > 750) {
+            cervenaMiska.nalozSiTrochu(pytlikMouky);
+        }
+        System.out.println("Má gr mouky: " + cervenaMiska.getHmotnostMouky());
+        cervenaMiska.nalozSiCelyObsah(prasekDoPeciva);
+        mixer.zamichej(cervenaMiska);
+        plech.preberSiObsah(cervenaMiska);
+        for (int i = 0; i < 50; i++) {
+            plech.posypSeKusem(ovoce);
+            System.out.println("Počet ovoce celkem : " + plech.getPocetOvoce());
+        }
+
+        trouba.zapniSe(180); ;
+        while (!trouba.isPredehrata()) {
+            trouba.nechejPect(1);
+        };
+        trouba.vlozSiDovnitr(plech);
+        trouba.nechejPect(25);
+        trouba.vypniSe();
+        trouba.vyndejObsahVen();
+
+        System.out.println("A teď přeji dobrou chuť.");
     }
 
 }
